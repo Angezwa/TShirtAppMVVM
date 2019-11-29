@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Tshirt.Views.TeeListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Place New Order">
+            <!--<ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" Value="plus.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>-->
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding Tees}" HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+
+                        <FlexLayout Margin="0,0,0,10">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="tshirt_logo.png" Margin="15,0,20,0" WidthRequest="50"/>
+
+                                <StackLayout>
+                                    <FlexLayout>
+                                        <Label Text="Name: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Name}"/>
+                                    </FlexLayout>
+                                    <FlexLayout>
+                                        <Label Text="Gender: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Gender}"/>
+                                    </FlexLayout>
+                                    <FlexLayout>
+                                        <Label Text="Size: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Size}"/>
+                                    </FlexLayout>
+                                    <FlexLayout>
+                                        <Label Text="Color: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Color}"/>
+                                    </FlexLayout>
+                                    <FlexLayout>
+                                        <Label Text="Address: " FontAttributes="Bold"/>
+                                        <Label x:Name="address" Text="{Binding Address}"/>
+                                    </FlexLayout>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </FlexLayout>
+                        <FlexLayout>
+                            <StackLayout>
+                                <Label Text="{Binding AddressPosition}" />
+                            </StackLayout>
+                        </FlexLayout>
+                        <FlexLayout>
+                            <Button Text="Submit Order" />
+                            <Button Text=" Order map" />
+                        </FlexLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
