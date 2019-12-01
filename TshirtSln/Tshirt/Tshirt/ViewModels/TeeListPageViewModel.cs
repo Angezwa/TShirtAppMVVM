@@ -12,18 +12,27 @@ namespace Tshirt.ViewModels
 {
     public class TeeListPageViewModel : ViewModelBase
     {
+        
         private ObservableCollection<Tees> _teesList;
         private IData _database;
 
-        public ObservableCollection<Tees> teesList
+        public ObservableCollection<Tees> TeesList
         {
             get { return _teesList; }
-            set{ SetProperty(ref _teesList, value); }
+            set { SetProperty(ref _teesList, value); }
         }
-
         public TeeListPageViewModel(INavigationService navigationService, IData database) : base(navigationService)
         {
             _database = database;
+        }
+
+        public async override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+
+            var tees = await _database.GetItemsAsync();
+
+            TeesList = new ObservableCollection<Tees>(tees);
         }
     }
 }

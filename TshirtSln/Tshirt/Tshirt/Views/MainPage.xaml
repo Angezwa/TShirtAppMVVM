@@ -4,34 +4,34 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-              xmlns:prism="http://prismlibrary.com"
-               prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Tshirt.Views.MainPage">
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Tshirt.Views.MainPage" BackgroundImage="Ondela.jpg">
 
     <StackLayout>
-        <Label Text="Tee'D Up" TextColor="Black" FontSize="Header" 
+        <Label Text="Tee'D Up" TextColor="Black" FontSize="Large" 
            FontAttributes="Bold"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" HeightRequest="60"/>
         <ScrollView>
             <StackLayout Padding="60" Spacing="5">
                 <Label Text="Full Names" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry Text="{Binding Name}" FontSize="Small"/>
+                <Entry Text="{Binding TeesOrder.Name}" FontSize="Small"/>
 
                 <Label Text="Gender" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry Text="{Binding Gender}" FontSize="Small"/>
+                <Entry Text="{Binding TeesOrder.Gender}" FontSize="Small"/>
 
                 <Label Text="Date of order" FontSize="Medium" FontAttributes="Bold"/>
-                <DatePicker Format="D" Date="{Binding Date}"/>
+                <DatePicker Format="D" Date="{Binding TeesOrder.Date}"/>
 
                 <Label Text="T-Shirt color" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry Text="{Binding Color}" FontSize="Small"/>
+                <Entry Text="{Binding TeesOrder.Color}" FontSize="Small"/>
 
                 <Label Text="Shipping address" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry Text="{Binding Address}" FontSize="Small"/>
+                <Entry Text="{Binding TeesOrder.Address}" FontSize="Small"/>
 
                 <Label Text="Size" FontSize="Medium" FontAttributes="Bold"/>
-                <Entry Text="{Binding Size}" FontSize="Small"/>
+                <Entry Text="{Binding TeesOrder.Size}" FontSize="Small"/>
 
                 <Button Text="Save" Command="{Binding SaveCommand}"/>
                 <Button Text="Delete" Command="{Binding DeleteCommand}"/>

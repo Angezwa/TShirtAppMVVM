@@ -55,8 +55,8 @@
                             </StackLayout>
                         </FlexLayout>
                         <FlexLayout>
-                            <Button Text="Submit Order" />
-                            <Button Text=" Order map" />
+                            <Button Text="Submit Order" Command="{Binding SubmitCommand}"/>
+                            <Button Text=" Order map" Command="{Binding MapCommand}"/>
                         </FlexLayout>
                     </StackLayout>
                 </ViewCell>

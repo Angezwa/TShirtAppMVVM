@@ -26,6 +26,8 @@ namespace Tshirt
             InitializeComponent();
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //var navigationPage = "TeeListPage/MainPage";
+            //_ = NavigationService.NavigateAsync($"{navigationPage}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -36,7 +38,7 @@ namespace Tshirt
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TeeListPage, TeeListPageViewModel>();
-            containerRegistry.RegisterForNavigation<PrismContentPage1, PrismContentPage1ViewModel>();
+           
         }
     }
 }

@@ -25,9 +25,9 @@ namespace Tshirt.Service
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "tees.Db3");
         }
 
-        public Task<List<Tees>> GetItemsAsync()
+        public async Task<List<Tees>> GetItemsAsync()
         {
-            return database.Table<Tees>().ToListAsync();
+            return await database.Table<Tees>().ToListAsync();
         }
 
         public Task<List<Tees>> GetItemsNotDoneAsync()

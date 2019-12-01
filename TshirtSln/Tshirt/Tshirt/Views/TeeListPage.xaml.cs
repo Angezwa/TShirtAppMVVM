@@ -8,5 +8,10 @@ namespace Tshirt.Views
         {
             InitializeComponent();
         }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
     }
 }

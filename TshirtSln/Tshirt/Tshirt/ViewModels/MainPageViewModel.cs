@@ -14,12 +14,13 @@ namespace Tshirt.ViewModels
             _saveCommand ?? (_saveCommand = new DelegateCommand(ExecuteSaveCommand));
 
        
-        public Tees TeesOrders;
+        public Tees TeesOrder { get; set; }
 
 
         private async void ExecuteSaveCommand()
         {
-            await _database.SaveItemAsync(TeesOrders);
+           await _database.SaveItemAsync(TeesOrder);
+           await NavigationService.NavigateAsync("TeeListPage");
         }
         public MainPageViewModel(INavigationService navigationService, IData database)
             : base(navigationService)
@@ -34,7 +35,7 @@ namespace Tshirt.ViewModels
         {
             base.Initialize(parameters);
 
-
+            TeesOrder = new Tees();
         }
 
     }
