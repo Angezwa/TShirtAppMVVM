@@ -12,7 +12,16 @@ namespace Tshirt.ViewModels
 {
     public class TeeListPageViewModel : ViewModelBase
     {
+        private DelegateCommand<Tees> _teeListTapCommand;
+        public DelegateCommand<Tees> TeeListTapCommand =>
+            _teeListTapCommand ?? (_teeListTapCommand = new DelegateCommand<Tees>(ExecuteTeeListTapCommand));
+
+        void ExecuteTeeListTapCommand(Tees tees)
+        {
+
         
+        }
+
         private ObservableCollection<Tees> _teesList;
         private IData _database;
 
@@ -26,7 +35,7 @@ namespace Tshirt.ViewModels
             _database = database;
         }
 
-        public async override void OnNavigatedFrom(INavigationParameters parameters)
+        public async override void Initialize(INavigationParameters parameters)
         {
             base.OnNavigatedFrom(parameters);
 

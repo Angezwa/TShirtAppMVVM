@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:converters="clr-namespace:Tshirt.Converters"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Tshirt.Views.TeeListPage">
     <ContentPage.ToolbarItems>
@@ -14,12 +15,11 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <ListView ItemsSource="{Binding Tees}" HasUnevenRows="True">
+    <ListView ItemsSource="{Binding TeesList}" HasUnevenRows="True"  >
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout>
-
                         <FlexLayout Margin="0,0,0,10">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="tshirt_logo.png" Margin="15,0,20,0" WidthRequest="50"/>
@@ -29,10 +29,12 @@
                                         <Label Text="Name: " FontAttributes="Bold"/>
                                         <Label Text="{Binding Name}"/>
                                     </FlexLayout>
+                                    
                                     <FlexLayout>
                                         <Label Text="Gender: " FontAttributes="Bold"/>
                                         <Label Text="{Binding Gender}"/>
                                     </FlexLayout>
+                                    
                                     <FlexLayout>
                                         <Label Text="Size: " FontAttributes="Bold"/>
                                         <Label Text="{Binding Size}"/>
@@ -62,5 +64,12 @@
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
+
+        <ListView.Behaviors>
+            <prism:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TeeListTapCommand}"
+                                          EventArgsConverter="{converters:ItemTappedEventArgsConverter}"/>
+            
+
+        </ListView.Behaviors>
     </ListView>
 </ContentPage>
